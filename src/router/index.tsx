@@ -1,13 +1,13 @@
-import { lazy, Suspense } from "react";
-import { createBrowserRouter } from "react-router-dom";
-import Loading from "../pages/Loading";
-import { BaseRoutes } from "./routes";
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import Loading from '../pages/Loading';
+import { BaseRoutes } from './routes';
 
-const Layout = lazy(() => import("../components/Layout"));
+const Layout = lazy(() => import('../components/Layout'));
 
-const Home = lazy(() => import("../pages/Home"));
-const ProductDetails = lazy(() => import("../pages/ProductDetails"));
-const NotFound = lazy(() => import("../pages/NotFound"));
+const Home = lazy(() => import('../pages/Home'));
+const ProductDetails = lazy(() => import('../pages/ProductDetails'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const router = createBrowserRouter([
   {

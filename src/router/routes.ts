@@ -1,4 +1,4 @@
 export const BaseRoutes = {
-  HOME: "/",
-  PRODUCT: "/product/:id",
+  HOME: '/',
+  PRODUCT: '/product/:id',
 };

@@ -1,21 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Header from "../Header";
 
 function Layout() {
   return (
     <div>
-      <header>
-        <h1>My App</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/product/3">About</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <Outlet />
       </main>
