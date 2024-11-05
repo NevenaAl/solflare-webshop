@@ -1,6 +1,8 @@
+import style from './Header.module.scss';
+
 function Header() {
   return (
-    <header>
+    <header className={style.test}>
       <h1>My App</h1>
       <nav>
         <ul>
