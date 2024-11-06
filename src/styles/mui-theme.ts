@@ -58,10 +58,6 @@ const theme = responsiveFontSizes(
         styleOverrides: {
           root: {
             borderRadius: '2px',
-            '&:hover': {
-              background: 'transparent',
-              color: colors.primaryBackgroundHoverColor,
-            },
           },
         },
       },
@@ -70,6 +66,11 @@ const theme = responsiveFontSizes(
           root: {
             font: typography.typographyButton,
           },
+        },
+      },
+      MuiLink: {
+        styleOverrides: {
+          root: { textDecoration: 'none' },
         },
       },
     },

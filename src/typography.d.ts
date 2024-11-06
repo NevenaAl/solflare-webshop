@@ -1,6 +1,7 @@
 import '@mui/material/styles';
 import '@mui/material/Typography';
 
+//update interfaces to allow custom typography
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     body3: React.CSSProperties;

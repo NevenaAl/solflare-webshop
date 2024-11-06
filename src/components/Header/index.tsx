@@ -9,11 +9,19 @@ import Tooltip from '@mui/material/Tooltip';
 import logo from '../../assets/images/logo.png';
 import style from './Header.module.scss';
 
-function Header() {
+interface HeaderProps {
+  onOpenDrawer: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
   const {
     t,
     i18n: { changeLanguage, language },
   } = useTranslation();
+
+  const handleCartClick = (): void => {
+    onOpenDrawer();
+  };
 
   return (
     <header className={style.header}>
@@ -25,7 +33,11 @@ function Header() {
         </Tooltip>
         <div className={style.header__nav__right}>
           <Tooltip title={t('shoppingCart')}>
-            <IconButton color="primary" aria-label={t('shoppingCart')}>
+            <IconButton
+              onClick={handleCartClick}
+              color="primary"
+              aria-label={t('shoppingCart')}
+            >
               <ShoppingCartIcon />
             </IconButton>
           </Tooltip>
@@ -42,6 +54,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

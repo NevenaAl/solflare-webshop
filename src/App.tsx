@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material';
 import theme from './styles/mui-theme';
 import './i18n';
 
-function App() {
+const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -13,6 +13,12 @@ function App() {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default App;
+
+//TODO
+//add toast
+//add currency component
+//replace any types
+//style no page and loading page
