@@ -1,3 +1,13 @@
-.test {
-  background-color: red;
+@use '../../styles/variables';
+
+.header {
+  background-color: variables.$secondary-background-color;
+  position: static;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: variables.$spacing-small;
+
+  .navLinks {
+    display: flex;
+    justify-content: space-between;
+  }
 }

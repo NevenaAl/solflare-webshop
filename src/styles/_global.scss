@@ -1,0 +1,15 @@
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @extend .body;
+}
+
+h1 {
+  @extend .heading;
+}
+
+h2 {
+  @extend .subheading;
+}
