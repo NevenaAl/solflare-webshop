@@ -1,35 +1,35 @@
-.body {
-  font: 400 1rem / 1.3 'Segoe UI';
+.body1 {
+  font: $typography-body1;
   color: $primary-foreground-color;
   letter-spacing: 0;
 }
 
-.body-secondary {
-  font: 400 0.875 / 1.3 'Segoe UI';
-  color: $primary-foreground-color;
+.body2 {
+  font: $typography-body2;
+  color: $secondary-foreground-color;
   letter-spacing: 0;
 }
 
-.body-tertiary {
-  font: 400 0.75 / 1.2 'Segoe UI';
+.body3 {
+  font: $typography-body3;
   color: $secondary-foreground-color;
   letter-spacing: -0.1rem;
 }
 
 .heading {
-  font: 800 2rem / 1.5 'Segoe UI';
+  font: $typography-heading;
   color: $primary-foreground-color;
   letter-spacing: 0.2rem;
 }
 
 .subheading {
-  font: 700 1.5rem / 1.5 'Segoe UI';
+  font: $typography-subheading;
   color: $primary-foreground-color;
   letter-spacing: 0;
 }
 
-.label {
-  font: 400 1rem / 1.2 'Segoe UI';
+.button {
+  font: $typography-button;
   color: $primary-foreground-color;
   letter-spacing: 0;
 }

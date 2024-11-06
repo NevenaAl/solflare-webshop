@@ -3,13 +3,17 @@ body {
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @extend .body;
+  @extend .body1;
 }
 
-h1 {
+h1,
+h2 {
   @extend .heading;
 }
 
-h2 {
+h3,
+h4,
+h5,
+h6 {
   @extend .subheading;
 }

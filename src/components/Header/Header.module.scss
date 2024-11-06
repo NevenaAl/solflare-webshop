@@ -2,15 +2,17 @@
 
 .header {
   background-color: variables.$secondary-background-color;
-  position: static;
+  position: sticky;
+  top: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: variables.$spacing-x-small;
+  padding: variables.$spacing-x-small variables.$spacing-small;
+  z-index: 10;
 
-  .navLinks {
+  &__nav {
     display: flex;
     justify-content: space-between;
 
-    .right {
+    &__right {
       align-items: center;
       display: flex;
       gap: variables.$spacing-x-small;

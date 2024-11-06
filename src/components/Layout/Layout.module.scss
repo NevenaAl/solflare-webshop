@@ -1,0 +1,6 @@
+@use '../../styles/variables/variables';
+
+.container {
+  padding-top: variables.$spacing-medium;
+  padding-bottom: variables.$spacing-medium;
+}

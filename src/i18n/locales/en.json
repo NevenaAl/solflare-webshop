@@ -3,6 +3,8 @@
     "shoppingCart": "Shopping cart",
     "logo": "Logo",
     "home": "Home",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "seeDetails": "See details",
+    "addToShoppingCart": "Add to shopping cart"
   }
 }
