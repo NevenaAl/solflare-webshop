@@ -1,16 +1,16 @@
 //colors
-$primary-background-color: rgb(44, 44, 158);
+$primary-background-color: rgb(25, 118, 210);
 $secondary-background-color: rgb(249, 249, 249);
-$primary-background-hover-color: darken($primary-background-color, 10%);
-$secondary-background-hover-color: darken($secondary-background-color, 10%);
+$primary-background-hover-color: rgb(10, 103, 195);
+$secondary-background-hover-color: rgb(239, 239, 239);
 $primary-foreground-color: rgb(20, 19, 19);
 $secondary-foreground-color: rgb(79, 78, 78);
-$primary-foreground-hover-color: darken($primary-foreground-color, 10%);
-$secondary-foreground-hover-color: darken($secondary-foreground-color, 10%);
+$primary-foreground-hover-color: rgb(10, 9, 9);
+$secondary-foreground-hover-color: rgb(69, 68, 68);
 
 //spacings (gap, margin, padding)
 $spacing-small: 0.875rem;
-$spacing-x-small: 0.75rem;
+$spacing-x-small: 0.5rem;
 $spacing-regular: 1rem;
 $spacing-large: 1.5rem;
 $spacing-x-large: 2rem;
