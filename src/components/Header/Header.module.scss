@@ -9,5 +9,11 @@
   .navLinks {
     display: flex;
     justify-content: space-between;
+
+    .right {
+      align-items: center;
+      display: flex;
+      gap: variables.$spacing-x-small;
+    }
   }
 }
