@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import style from './ProductListItem.module.scss';
 import { spacings } from '../../styles/variables/variables';
 import { Product } from '../../types/product';
+import { CartContext } from '../../context/CartProvider';
 
 interface ProductListItemProps {
   product: Product;
@@ -22,6 +23,11 @@ interface ProductListItemProps {
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   const { t } = useTranslation();
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCartClick = () => {
+    addToCart(product);
+  };
 
   return (
     <Card className={style.product__card}>
@@ -46,7 +52,11 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
       <CardActions className={style.product__card__actions}>
         <Button href={`/product/${product.id}`}>{t('seeDetails')}</Button>
         <Tooltip title={t('addToShoppingCart')}>
-          <IconButton color="primary" aria-label={t('addToShoppingCart')}>
+          <IconButton
+            onClick={handleAddToCartClick}
+            color="primary"
+            aria-label={t('addToShoppingCart')}
+          >
             <AddShoppingCartIcon />
           </IconButton>
         </Tooltip>

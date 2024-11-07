@@ -5,9 +5,12 @@ import { useTranslation } from 'react-i18next';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
+import Badge from '@mui/material/Badge';
 
 import logo from '../../assets/images/logo.png';
 import style from './Header.module.scss';
+import { CartContext } from '../../context/CartProvider';
+import { useContext } from 'react';
 
 interface HeaderProps {
   onOpenDrawer: () => void;
@@ -18,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
     t,
     i18n: { changeLanguage, language },
   } = useTranslation();
+  const { cartItems } = useContext(CartContext);
 
   const handleCartClick = (): void => {
     onOpenDrawer();
@@ -38,7 +42,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
               color="primary"
               aria-label={t('shoppingCart')}
             >
-              <ShoppingCartIcon />
+              <Badge badgeContent={cartItems.length} color="primary">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
           </Tooltip>
           <Select
