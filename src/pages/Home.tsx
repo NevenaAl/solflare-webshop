@@ -16,9 +16,7 @@ const Home = () => {
       <Toast isOpen={true} severity="error" message={error.message}></Toast>
     );
 
-  return (
-    <ProductList isLoading={isLoading} products={data ?? []}></ProductList>
-  );
+  return <ProductList isLoading={isLoading} products={data}></ProductList>;
 };
 
 export default Home;

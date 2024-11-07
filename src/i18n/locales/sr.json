@@ -6,6 +6,7 @@
     "pageNotFound": "Greska 404 - Stranica nije pronadjena",
     "selectLanguage": "Izaberi jezik",
     "seeDetails": "Vidi detalje",
-    "addToShoppingCart": "Dodaj u korpu"
+    "addToShoppingCart": "Dodaj u korpu",
+    "noProducts": "Nema dostupnih proizvoda"
   }
 }
