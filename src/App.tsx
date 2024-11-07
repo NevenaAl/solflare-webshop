@@ -6,7 +6,7 @@ import theme from './styles/mui-theme';
 import './i18n';
 import './App.css';
 import { router } from './router';
-import { queryClient } from './api';
+import { queryClient } from './api/query-client';
 
 const App = () => {
   return (
@@ -21,7 +21,12 @@ const App = () => {
 export default App;
 
 //TODO
-//add toast
 //add currency component
-//replace any types
 //replace div with box
+//fix imports
+//do i need utils
+//toast hook
+//should i move drawer
+//comp naming
+//read me
+//add x to drawer

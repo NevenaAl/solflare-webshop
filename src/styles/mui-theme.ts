@@ -78,6 +78,13 @@ const theme = responsiveFontSizes(
           root: { margin: 'unset' },
         },
       },
+      MuiDrawer: {
+        styleOverrides: {
+          paper: {
+            width: 'inherit',
+          },
+        },
+      },
     },
   }),
 );

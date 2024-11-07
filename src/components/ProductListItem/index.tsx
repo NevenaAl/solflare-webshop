@@ -27,6 +27,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
 
   const handleAddToCartClick = () => {
     addToCart(product);
+    //show toast
   };
 
   return (

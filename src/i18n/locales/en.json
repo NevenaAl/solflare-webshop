@@ -7,6 +7,7 @@
     "selectLanguage": "Select language",
     "seeDetails": "See details",
     "addToShoppingCart": "Add to shopping cart",
-    "noProducts": "No products available"
+    "noProducts": "No products available",
+    "clearCart": "Clear cart"
   }
 }

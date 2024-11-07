@@ -23,7 +23,7 @@ export const get = async <ResponseType>(
   }
 };
 
-const handleHttpError = (error: any) => {
+const handleHttpError = (error: unknown) => {
   if (process.env.NODE_ENV === 'development') {
     if (axios.isAxiosError(error)) {
       console.log('Axios error: ', error);

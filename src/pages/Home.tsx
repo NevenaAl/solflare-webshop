@@ -1,8 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
+
+import Toast from '../components/ui/Toast';
+import { getProducts } from '../api/services/product-service';
+import { ErrorCodes } from '../api/query-client';
 import ProductList from '../components/ProductList';
 import { Product } from '../types/product';
-import { useQuery } from '@tanstack/react-query';
-import { ErrorCodes, getProducts } from '../api';
-import Toast from '../components/ui/Toast';
 
 const Home = () => {
   const { data, error, isLoading, isError } = useQuery<Product[], Error>({

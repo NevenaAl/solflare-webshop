@@ -7,6 +7,7 @@
     "selectLanguage": "Izaberi jezik",
     "seeDetails": "Vidi detalje",
     "addToShoppingCart": "Dodaj u korpu",
-    "noProducts": "Nema dostupnih proizvoda"
+    "noProducts": "Nema dostupnih proizvoda",
+    "clearCart": "Ocisti korpu"
   }
 }

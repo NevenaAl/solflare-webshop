@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import style from './Layout.module.scss';
 import Header from '../Header';
+import CartList from '../CartList';
+import { CartContext } from '../../context/CartProvider';
 
 const Layout = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
     <div>
@@ -20,8 +23,10 @@ const Layout = () => {
           anchor="right"
           open={isDrawerOpen}
           onClose={() => setIsDrawerOpen(false)}
+          className={style.drawer}
+          variant="temporary"
         >
-          eeeeee
+          <CartList items={cartItems} total={cartTotal}></CartList>
         </Drawer>
       </main>
     </div>
