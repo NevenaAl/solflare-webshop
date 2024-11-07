@@ -73,6 +73,11 @@ const theme = responsiveFontSizes(
           root: { textDecoration: 'none' },
         },
       },
+      MuiTypography: {
+        styleOverrides: {
+          root: { margin: 'unset' },
+        },
+      },
     },
   }),
 );

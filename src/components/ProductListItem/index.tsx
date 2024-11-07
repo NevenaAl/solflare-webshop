@@ -14,9 +14,10 @@ import { useTranslation } from 'react-i18next';
 
 import style from './ProductListItem.module.scss';
 import { spacings } from '../../styles/variables/variables';
+import { Product } from '../../types/product';
 
 interface ProductListItemProps {
-  product: any;
+  product: Product;
 }
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
@@ -24,7 +25,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
 
   return (
     <Card className={style.product__card}>
-      <CardContent>
+      <CardContent className={style.product__card__content}>
         <Link href={`/product/${product.id}`}>
           <Typography variant="body1" gutterBottom>
             {product.name}

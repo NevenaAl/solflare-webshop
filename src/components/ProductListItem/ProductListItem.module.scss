@@ -28,7 +28,9 @@
     justify-content: space-between;
   }
 
-  &__paragraph {
-    padding-bottom: variables.$spacing-medium;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$spacing-small;
   }
 }
