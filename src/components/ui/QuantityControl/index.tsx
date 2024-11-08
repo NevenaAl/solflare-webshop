@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import { spacings } from '../../../styles/variables/variables';
+import { Tooltip } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 interface QuantityControlProps {
   initialQuantity: number;
@@ -17,6 +19,7 @@ const QuantityControl: React.FC<QuantityControlProps> = ({
   onQuantityChange,
 }) => {
   const [quantity, setQuantity] = useState<number>(initialQuantity);
+  const { t } = useTranslation();
 
   const handleIncreaseClick = () => {
     setQuantity((prev) => {
@@ -39,13 +42,25 @@ const QuantityControl: React.FC<QuantityControlProps> = ({
 
   return (
     <Box display="flex" alignItems="center" gap={spacings.spacingMedium}>
-      <IconButton color="primary" onClick={handleDecreaseClick}>
-        <RemoveIcon />
-      </IconButton>
+      <Tooltip title={t('decreaseQuantity')}>
+        <IconButton
+          aria-label={t('decreaseQuantity')}
+          color="primary"
+          onClick={handleDecreaseClick}
+        >
+          <RemoveIcon />
+        </IconButton>
+      </Tooltip>
       <Typography variant="body2">{quantity}</Typography>
-      <IconButton color="primary" onClick={handleIncreaseClick}>
-        <AddIcon />
-      </IconButton>
+      <Tooltip title={t('increaseQuantity')}>
+        <IconButton
+          aria-label={t('increaseQuantity')}
+          color="primary"
+          onClick={handleIncreaseClick}
+        >
+          <AddIcon />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 };

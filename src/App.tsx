@@ -21,13 +21,11 @@ const App = () => {
 export default App;
 
 //TODO
-//add currency component
 //replace div with box
 //fix imports
-//do i need utils
-//toast hook
 //should i move drawer
 //comp naming
 //read me
-//add x to drawer
-//add aria labels and tooltips
+// move snacbar to toast snackbar and create layout folder
+//proveri gde provideri da idu
+//details

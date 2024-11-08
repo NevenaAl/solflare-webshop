@@ -1,43 +1,29 @@
-import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
 import Alert, { AlertColor } from '@mui/material/Alert';
-import { SyntheticEvent, useState } from 'react';
 import Typography from '@mui/material/Typography';
-
+import useToast from '../../../hooks/useToast';
+import style from './Toast.module.scss';
 interface ToastProps {
-  isOpen: boolean;
+  id: number;
   message: string;
   severity?: AlertColor;
 }
 
-const Toast: React.FC<ToastProps> = ({
-  isOpen,
-  message,
-  severity = 'success',
-}) => {
-  const [open, setOpen] = useState(isOpen);
+const Toast: React.FC<ToastProps> = ({ id, message, severity = 'success' }) => {
+  const { removeToast } = useToast();
 
-  const handleClose = (
-    event?: SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
+  const handleClose = () => {
+    removeToast(id);
   };
 
   return (
-    <Snackbar
-      open={open}
-      autoHideDuration={6000}
+    <Alert
+      className={style.alert}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      severity={severity}
+      variant="filled"
     >
-      <Alert onClose={handleClose} severity={severity} variant="outlined">
-        <Typography variant="body2">{message}</Typography>
-      </Alert>
-    </Snackbar>
+      <Typography variant="body1">{message}</Typography>
+    </Alert>
   );
 };
 

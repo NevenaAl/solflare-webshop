@@ -11,6 +11,10 @@
     "clearCart": "Clear cart",
     "total": "Total",
     "remove": "Remove",
-    "emptyCart": "Your cart is empty"
+    "emptyCart": "Your cart is empty",
+    "itemRemoved": "Item removed",
+    "productAddedToCart": "{{product}} added to cart",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity"
   }
 }

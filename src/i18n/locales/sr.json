@@ -11,6 +11,10 @@
     "clearCart": "Ocisti korpu",
     "total": "Ukupno",
     "remove": "Ukloni",
-    "emptyCart": "Vasa korpa je prazna"
+    "emptyCart": "Vasa korpa je prazna",
+    "itemRemoved": "Proizvod uklonjen",
+    "productAddedToCart": "{{product}} dodat u korpu",
+    "decreaseQuantity": "Smanji kolicinu",
+    "increaseQuantity": "Povecaj kolicinu"
   }
 }

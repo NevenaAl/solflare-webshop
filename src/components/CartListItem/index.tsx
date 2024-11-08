@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 
 import QuantityControl from '../ui/QuantityControl';
 import { CartItem } from '../../types/cart';
@@ -12,7 +13,7 @@ import { CartContext } from '../../context/CartProvider';
 import { spacings } from '../../styles/variables/variables';
 import Price from '../ui/Price';
 import style from './CartListItem.module.scss';
-import Tooltip from '@mui/material/Tooltip';
+import useToast from '../../hooks/useToast';
 
 interface CartItemProps {
   item: CartItem;
@@ -21,10 +22,11 @@ interface CartItemProps {
 const CartListItem: React.FC<CartItemProps> = ({ item }) => {
   const { removeFromCart, updateQuantity } = useContext(CartContext);
   const { t } = useTranslation();
+  const { addToast } = useToast();
 
   const handleRemoveClick = () => {
     removeFromCart(item);
-    //show toast
+    addToast({ message: t('itemRemoved') });
   };
 
   const handleQuantityChange = (quantity: number) => {

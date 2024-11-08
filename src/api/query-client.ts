@@ -5,6 +5,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 
+// Custom error codes for more specific error handling
 export const ErrorCodes = {
   PRODUCTS_FETCH_FAILED: 'PRODUCTS_FETCH_FAILED',
 } as const;

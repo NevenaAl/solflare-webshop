@@ -15,6 +15,8 @@ interface ContextProps {
   cartTotal: number;
 }
 
+// CartContext provides a global state for managing the cart items in the application
+// This allows components to add, remove, and update cart items and the total cart price.
 export const CartContext = createContext({} as ContextProps);
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {

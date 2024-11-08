@@ -13,10 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
 
 import style from './ProductListItem.module.scss';
-import { spacings } from '../../styles/variables/variables';
 import { Product } from '../../types/product';
 import { CartContext } from '../../context/CartProvider';
 import Price from '../ui/Price';
+import useToast from '../../hooks/useToast';
 
 interface ProductListItemProps {
   product: Product;
@@ -25,10 +25,11 @@ interface ProductListItemProps {
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   const { t } = useTranslation();
   const { addToCart } = useContext(CartContext);
+  const { addToast } = useToast();
 
   const handleAddToCartClick = () => {
     addToCart(product);
-    //show toast
+    addToast({ message: t('productAddedToCart', { product: product.name }) });
   };
 
   return (
