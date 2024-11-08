@@ -82,6 +82,7 @@ const theme = responsiveFontSizes(
         styleOverrides: {
           paper: {
             width: 'inherit',
+            maxWidth: 'inherit',
           },
         },
       },

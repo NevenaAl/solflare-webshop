@@ -30,3 +30,4 @@ export default App;
 //comp naming
 //read me
 //add x to drawer
+//add aria labels and tooltips

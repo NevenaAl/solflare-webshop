@@ -8,6 +8,9 @@
     "seeDetails": "Vidi detalje",
     "addToShoppingCart": "Dodaj u korpu",
     "noProducts": "Nema dostupnih proizvoda",
-    "clearCart": "Ocisti korpu"
+    "clearCart": "Ocisti korpu",
+    "total": "Ukupno",
+    "remove": "Ukloni",
+    "emptyCart": "Vasa korpa je prazna"
   }
 }

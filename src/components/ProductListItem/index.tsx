@@ -16,6 +16,7 @@ import style from './ProductListItem.module.scss';
 import { spacings } from '../../styles/variables/variables';
 import { Product } from '../../types/product';
 import { CartContext } from '../../context/CartProvider';
+import Price from '../ui/Price';
 
 interface ProductListItemProps {
   product: Product;
@@ -38,16 +39,9 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
             {product.name}
           </Typography>
         </Link>
-        <Typography className={style.product__card__paragraph} variant="body2">
-          {product.price}
-        </Typography>
+        <Price value={product.price}></Price>
         <Box className={style.product__card__description}>
-          <Typography
-            className={style.product__card__paragraph}
-            variant="body3"
-          >
-            {product.description}
-          </Typography>
+          <Typography variant="body3">{product.description}</Typography>
         </Box>
       </CardContent>
       <CardActions className={style.product__card__actions}>

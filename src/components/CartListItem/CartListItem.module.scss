@@ -1,0 +1,14 @@
+@use '../../styles/variables/variables';
+
+.item {
+  padding-top: variables.$spacing-x-small;
+  &__info {
+    max-width: 120px;
+
+    &__name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

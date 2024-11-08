@@ -8,6 +8,9 @@
     "seeDetails": "See details",
     "addToShoppingCart": "Add to shopping cart",
     "noProducts": "No products available",
-    "clearCart": "Clear cart"
+    "clearCart": "Clear cart",
+    "total": "Total",
+    "remove": "Remove",
+    "emptyCart": "Your cart is empty"
   }
 }
