@@ -1,24 +1,25 @@
 import ListItem from '@mui/material/ListItem';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-import QuantityControl from '../ui/QuantityControl';
-import { CartItem } from '../../types/cart';
-import { CartContext } from '../../context/CartProvider';
-import { spacings } from '../../styles/variables/variables';
-import Price from '../ui/Price';
-// import style from './CartListItem.module.scss';
-import { ToastContext } from '../../context/ToastProvider';
-import { Product } from '../../types/product';
+import CheckCircle from '@mui/icons-material/CheckCircleOutline';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import List from '@mui/material/List';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Button from '@mui/material/Button';
+import Skeleton from '@mui/material/Skeleton';
+
+import { CartContext } from '../../context/CartProvider';
+import { spacings } from '../../styles/variables/variables';
+import Price from '../ui/Price';
+import { ToastContext } from '../../context/ToastProvider';
+import { Product } from '../../types/product';
+import ProductDataTable from '../ProductDataTable';
+import noImage from '../../assets/images/noImage.jpg';
 
 interface ProductDetailsProps {
   isLoading: boolean;
@@ -29,73 +30,107 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   product,
   isLoading,
 }) => {
-  const { removeFromCart, updateQuantity } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const { t } = useTranslation();
   const { addToast } = useContext(ToastContext);
 
-  if (product) {
+  const handleAddToCart = () => {
+    addToCart(product!);
+    addToast({ message: t('productAddedToCart', { product: product!.name }) });
+  };
+
+  if (isLoading) {
     return (
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        flexDirection="column"
-        // gap={spacings.spacingLarge}
-        flex={1}
-      >
-        <Price value={product.price} />
-        <Accordion defaultExpanded>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography fontWeight="500">Features</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2-content"
-            id="panel2-header"
-          >
-            <Typography fontWeight="500">Specifications</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2-content"
-            id="panel2-header"
-          >
-            <Typography fontWeight="500">Additional Information</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+      <Box gap={spacings.spacingLarge} display="flex">
+        <Skeleton variant="rounded" height={270} width={300} />
+        <Box
+          flex="1"
+          display="flex"
+          flexDirection="column"
+          gap={spacings.spacingMedium}
+        >
+          <Skeleton variant="rounded" height={50} width="100%"></Skeleton>
+          <Skeleton variant="rounded" height={205} width="100%"></Skeleton>
+        </Box>
       </Box>
     );
   }
-  return <Typography>No product</Typography>;
+
+  if (!product) {
+    return <Typography variant="subtitle1">Product not available</Typography>;
+  }
+
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      flex={1}
+      gap={spacings.spacingLarge}
+    >
+      <Box gap={spacings.spacingMedium} display="flex">
+        <img alt={t('noProductImage')} width={300} src={noImage}></img>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap={spacings.spacingMedium}
+          flex="1"
+        >
+          <Typography variant="h4">{product.name}</Typography>
+          <Price typographyVariant={'h5'} value={product.price} />
+          <Typography flex="1" variant="body2">
+            {product.description}
+          </Typography>
+          <Box alignSelf="end">
+            <Button onClick={handleAddToCart}>Add to cart</Button>
+          </Box>
+        </Box>
+      </Box>
+      <Box>
+        <Accordion defaultExpanded>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="features-content"
+          >
+            <Typography fontWeight="500">Features</Typography>
+          </AccordionSummary>
+          <AccordionDetails id="features-content">
+            <List>
+              {product.features.map((feature) => (
+                <ListItem key={feature}>
+                  <ListItemAvatar>
+                    <CheckCircle color="success" />
+                  </ListItemAvatar>
+                  <Typography>{feature}</Typography>
+                </ListItem>
+              ))}
+            </List>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="specifications-content"
+          >
+            <Typography fontWeight="500">Specifications</Typography>
+          </AccordionSummary>
+          <AccordionDetails id="specifications-content">
+            <ProductDataTable data={product.specifications} />
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="additional-information-content"
+          >
+            <Typography fontWeight="500">Additional Information</Typography>
+          </AccordionSummary>
+          <AccordionDetails id="additional-information-content">
+            <ProductDataTable data={product.additionalInformation} />
+          </AccordionDetails>
+        </Accordion>
+      </Box>
+    </Box>
+  );
 };
 
 export default ProductDetails;

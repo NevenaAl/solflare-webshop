@@ -8,11 +8,11 @@ export interface Product {
   additionalInformation: AdditionalInformation;
 }
 
-export interface Specifications {
-  [keyof: string]: string | string[] | number;
-}
+export type Specifications = Record<string, ProductDataType>;
+export type AdditionalInformation = Record<
+  AdditionalInformationKey,
+  ProductDataType
+>;
 
-export interface AdditionalInformation {
-  Warranty: string;
-  'In the Box': string[];
-}
+export type AdditionalInformationKey = 'Warranty' | 'In the Box';
+export type ProductDataType = string | string[] | number;

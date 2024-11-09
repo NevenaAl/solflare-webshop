@@ -34,26 +34,16 @@ const CartListItem: React.FC<CartItemProps> = ({ item }) => {
   };
 
   return (
-    <ListItem
-      secondaryAction={
-        <Tooltip title={t('remove')}>
-          <IconButton
-            onClick={handleRemoveClick}
-            edge="end"
-            aria-label={t('remove')}
-          >
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      }
-      className={style.item}
-    >
+    <ListItem className={style.item}>
       <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
         gap={spacings.spacingLarge}
         flex={1}
+        sx={{
+          gap: { xs: spacings.spacingXSmall },
+        }}
       >
         <Box className={style.item__info} display="flex" flexDirection="column">
           <Typography variant="body2" className={style.item__info__name}>
@@ -64,7 +54,22 @@ const CartListItem: React.FC<CartItemProps> = ({ item }) => {
             onQuantityChange={handleQuantityChange}
           ></QuantityControl>
         </Box>
-        <Price value={item.price} />
+        <Box
+          display="flex"
+          justifyContent="end"
+          className={style.item__info__price}
+        >
+          <Price value={item.price} />
+        </Box>
+        <Tooltip title={t('remove')}>
+          <IconButton
+            onClick={handleRemoveClick}
+            edge="end"
+            aria-label={t('remove')}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </Box>
     </ListItem>
   );

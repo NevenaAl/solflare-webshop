@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import Button from '@mui/material/Button';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import CartListItem from '../CartListItem';
@@ -43,10 +43,10 @@ const CartList: React.FC<CartListProps> = ({ items, total }) => {
       <Box flex={1}>
         <List dense={true}>
           {items.map((item) => (
-            <Box key={item.product.id}>
+            <React.Fragment key={item.product.id}>
               <CartListItem item={item}></CartListItem>
               <Divider></Divider>
-            </Box>
+            </React.Fragment>
           ))}
         </List>
       </Box>

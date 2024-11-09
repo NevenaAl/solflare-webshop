@@ -37,7 +37,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     }
   }, []);
 
-  const addToCart = (product: Product, quantity: number = 1) => {
+  const addToCart = (product: Product) => {
     const isItemInCart = cartItems.some(
       (cartItem) => cartItem.product.id === product.id,
     );
@@ -48,8 +48,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
           cartItem.product.id === product.id
             ? {
                 ...cartItem,
-                quantity: cartItem.quantity + quantity,
-                price: cartItem.price + quantity * product.price,
+                quantity: cartItem.quantity + 1,
+                price: cartItem.price + product.price,
               }
             : cartItem,
         ),
@@ -57,7 +57,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     } else {
       setCartItems([
         ...cartItems,
-        { product, quantity, price: product.price * quantity },
+        { product, quantity: 1, price: product.price },
       ]);
     }
   };

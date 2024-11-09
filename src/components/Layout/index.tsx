@@ -39,15 +39,20 @@ const Layout = () => {
         open={true}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
-        <Stack flexDirection="column" gap={spacings.spacingMedium}>
-          {toasts.map((toast) => (
-            <Toast
-              id={toast.id}
-              message={toast.message}
-              severity={toast.severity}
-            />
-          ))}
-        </Stack>
+        {toasts.length > 0 ? (
+          <Stack flexDirection="column" gap={spacings.spacingMedium}>
+            {toasts?.map((toast) => (
+              <Toast
+                key={toast.id}
+                id={toast.id}
+                message={toast.message}
+                severity={toast.severity}
+              />
+            ))}
+          </Stack>
+        ) : (
+          <div></div>
+        )}
       </Snackbar>
     </>
   );
