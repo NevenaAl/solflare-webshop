@@ -1,23 +1,20 @@
 import Alert, { AlertColor } from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
+
 import style from './Toast.module.scss';
-import { ToastContext } from '../../../context/ToastProvider';
-import { useContext } from 'react';
 interface ToastProps {
-  id: number;
   message: string;
   severity?: AlertColor;
+  onClose: () => void;
 }
 
-const Toast: React.FC<ToastProps> = ({ id, message, severity = 'success' }) => {
-  const { removeToast } = useContext(ToastContext);
-
-  const handleClose = () => {
-    removeToast(id);
-  };
-
+const Toast: React.FC<ToastProps> = ({
+  message,
+  severity = 'success',
+  onClose,
+}) => {
   return (
-    <Alert className={style.alert} onClose={handleClose} severity={severity}>
+    <Alert className={style.alert} onClose={onClose} severity={severity}>
       <Typography variant="body1">{message}</Typography>
     </Alert>
   );

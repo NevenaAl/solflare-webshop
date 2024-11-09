@@ -21,10 +21,7 @@ const App = () => {
 export default App;
 
 //TODO
-//fix imports
-//should i move drawer
 //comp naming
 //read me
-// move snacbar to toast snackbar and create layout folder
 //proveri gde provideri da idu
 //razdvojiti typography, ne radi dobro

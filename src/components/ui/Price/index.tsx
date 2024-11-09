@@ -1,8 +1,9 @@
 import Typography from '@mui/material/Typography';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getFormattedPrice } from '../../../utils/price-util';
 import { Variant } from '@mui/material/styles/createTypography';
+
+import { getFormattedPrice } from '../../../utils/price-util';
 
 interface PriceProps {
   value: number;

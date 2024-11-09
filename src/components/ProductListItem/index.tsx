@@ -9,7 +9,6 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
-
 import { useTranslation } from 'react-i18next';
 
 import style from './ProductListItem.module.scss';
@@ -47,11 +46,11 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
       </CardContent>
       <CardActions className={style.product__card__actions}>
         <Button href={`/product/${product.id}`}>{t('seeDetails')}</Button>
-        <Tooltip title={t('addToShoppingCart')}>
+        <Tooltip title={t('addToCart')}>
           <IconButton
             onClick={handleAddToCartClick}
             color="primary"
-            aria-label={t('addToShoppingCart')}
+            aria-label={t('addToCart')}
           >
             <AddShoppingCartIcon />
           </IconButton>

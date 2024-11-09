@@ -6,7 +6,7 @@
     "pageNotFound": "Error 404 - Page not found",
     "selectLanguage": "Select language",
     "seeDetails": "See details",
-    "addToShoppingCart": "Add to shopping cart",
+    "addToCart": "Add to cart",
     "noProducts": "No products available",
     "clearCart": "Clear cart",
     "total": "Total",
@@ -15,6 +15,10 @@
     "itemRemoved": "Item removed",
     "productAddedToCart": "{{product}} added to cart",
     "decreaseQuantity": "Decrease quantity",
-    "increaseQuantity": "Increase quantity"
+    "increaseQuantity": "Increase quantity",
+    "productNotAvailable": "Product not available",
+    "features": "Features",
+    "specifications": "Specifications",
+    "additionalInformation": "Additional Information"
   }
 }

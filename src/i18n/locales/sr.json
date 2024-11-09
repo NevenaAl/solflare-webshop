@@ -6,7 +6,7 @@
     "pageNotFound": "Greska 404 - Stranica nije pronadjena",
     "selectLanguage": "Izaberi jezik",
     "seeDetails": "Vidi detalje",
-    "addToShoppingCart": "Dodaj u korpu",
+    "addToCart": "Dodaj u korpu",
     "noProducts": "Nema dostupnih proizvoda",
     "clearCart": "Ocisti korpu",
     "total": "Ukupno",
@@ -15,6 +15,10 @@
     "itemRemoved": "Proizvod uklonjen",
     "productAddedToCart": "{{product}} dodat u korpu",
     "decreaseQuantity": "Smanji kolicinu",
-    "increaseQuantity": "Povecaj kolicinu"
+    "increaseQuantity": "Povecaj kolicinu",
+    "productNotAvailable": "Proizvod nije dostupan",
+    "features": "Funkcije",
+    "specifications": "Specifikacije",
+    "additionalInformation": "Dodatne informacije"
   }
 }

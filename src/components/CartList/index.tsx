@@ -3,12 +3,13 @@ import List from '@mui/material/List';
 import Button from '@mui/material/Button';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 
 import CartListItem from '../CartListItem';
 import { CartItem } from '../../types/cart';
 import { CartContext } from '../../context/CartProvider';
 import Price from '../ui/Price';
-import { Divider, Typography } from '@mui/material';
 import { spacings } from '../../styles/variables/variables';
 
 interface CartListProps {

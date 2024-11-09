@@ -41,8 +41,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   if (isLoading) {
     return (
-      <Box gap={spacings.spacingLarge} display="flex">
-        <Skeleton variant="rounded" height={270} width={300} />
+      <Box
+        gap={spacings.spacingLarge}
+        display="flex"
+        sx={{
+          flexDirection: { xs: 'column', sm: 'row' },
+        }}
+      >
+        <Skeleton variant="rounded" height={300} width={300} />
         <Box
           flex="1"
           display="flex"
@@ -50,14 +56,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           gap={spacings.spacingMedium}
         >
           <Skeleton variant="rounded" height={50} width="100%"></Skeleton>
-          <Skeleton variant="rounded" height={205} width="100%"></Skeleton>
+          <Skeleton variant="rounded" height={235} width="100%"></Skeleton>
         </Box>
       </Box>
     );
   }
 
   if (!product) {
-    return <Typography variant="subtitle1">Product not available</Typography>;
+    return (
+      <Typography variant="subtitle1">{t('productNotAvailable')}</Typography>
+    );
   }
 
   return (
@@ -67,8 +75,20 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       flex={1}
       gap={spacings.spacingLarge}
     >
-      <Box gap={spacings.spacingMedium} display="flex">
-        <img alt={t('noProductImage')} width={300} src={noImage}></img>
+      <Box
+        gap={spacings.spacingMedium}
+        display="flex"
+        sx={{
+          flexDirection: { xs: 'column', sm: 'row' },
+        }}
+      >
+        <Box
+          component="img"
+          alt="No product image"
+          src={noImage}
+          width={300}
+          height={300}
+        />
         <Box
           display="flex"
           flexDirection="column"
@@ -81,7 +101,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             {product.description}
           </Typography>
           <Box alignSelf="end">
-            <Button onClick={handleAddToCart}>Add to cart</Button>
+            <Button onClick={handleAddToCart}>{t('addToCart')}</Button>
           </Box>
         </Box>
       </Box>
@@ -91,7 +111,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             expandIcon={<ExpandMoreIcon />}
             aria-controls="features-content"
           >
-            <Typography fontWeight="500">Features</Typography>
+            <Typography fontWeight="500">{t('features')}</Typography>
           </AccordionSummary>
           <AccordionDetails id="features-content">
             <List>
@@ -111,7 +131,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             expandIcon={<ExpandMoreIcon />}
             aria-controls="specifications-content"
           >
-            <Typography fontWeight="500">Specifications</Typography>
+            <Typography fontWeight="500">{t('specifications')}</Typography>
           </AccordionSummary>
           <AccordionDetails id="specifications-content">
             <ProductDataTable data={product.specifications} />
@@ -122,7 +142,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             expandIcon={<ExpandMoreIcon />}
             aria-controls="additional-information-content"
           >
-            <Typography fontWeight="500">Additional Information</Typography>
+            <Typography fontWeight="500">
+              {t('additionalInformation')}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails id="additional-information-content">
             <ProductDataTable data={product.additionalInformation} />

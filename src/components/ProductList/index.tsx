@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid2';
 import Skeleton from '@mui/material/Skeleton';
 import React from 'react';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
 import ProductListItem from '../ProductListItem';

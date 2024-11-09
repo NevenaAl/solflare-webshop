@@ -9,10 +9,10 @@ import Badge from '@mui/material/Badge';
 import { useContext } from 'react';
 import Box from '@mui/material/Box';
 
-import logo from '../../assets/images/logo.png';
+import logo from '../../../assets/images/logo.png';
 import style from './Header.module.scss';
-import { CartContext } from '../../context/CartProvider';
-import { spacings } from '../../styles/variables/variables';
+import { CartContext } from '../../../context/CartProvider';
+import { spacings } from '../../../styles/variables/variables';
 
 interface HeaderProps {
   onOpenDrawer: () => void;
