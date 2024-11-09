@@ -84,7 +84,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       >
         <Box
           component="img"
-          alt="No product image"
+          alt={t('productImage')}
           src={noImage}
           width={300}
           height={300}

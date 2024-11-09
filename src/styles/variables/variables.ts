@@ -20,12 +20,11 @@ export const spacings = {
   spacingXXLarge: '4rem',
 };
 
-//typography
-export const typography = {
-  typographyBody1: "400 1rem / 1.3 'Segoe UI'",
-  typographyBody2: "400 0.75rem / 1.2 'Segoe UI'",
-  typographyBody3: "400 0.75rem / 1.2 'Segoe UI'",
-  typographyHeading: "800 2rem / 1.5 'Segoe UI'",
-  typographySubheading: "700 1.5rem / 1.5 'Segoe UI'",
-  typographyButton: "400 0.875rem / 1 'Segoe UI'",
+//fonts
+export const fontSizes = {
+  fontMedium: '1rem',
+  fontSmall: '0.875rem',
+  fontXSmall: '0.75rem',
+  fontLarge: '1.5rem',
+  fontXLarge: '2rem',
 };

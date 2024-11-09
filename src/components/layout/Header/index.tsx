@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
       <nav className={style.header__nav}>
         <Tooltip title={t('home')}>
           <Link href="/" aria-label={t('home')}>
-            <img width={'150px'} src={logo} alt={t('logo')}></img>
+            <Box component="img" alt={t('logo')} src={logo} width={150} />
           </Link>
         </Tooltip>
         <Box display="flex" alignItems="center" gap={spacings.spacingXSmall}>

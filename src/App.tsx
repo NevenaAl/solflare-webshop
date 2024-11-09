@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material';
 
 import theme from './styles/mui-theme';
 import './i18n';
-import './App.css';
 import { router } from './router';
 import { queryClient } from './api/query-client';
 

@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { colors, typography } from './variables/variables';
+import { colors, fontSizes } from './variables/variables';
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -16,27 +16,27 @@ const theme = responsiveFontSizes(
         'sans-serif',
       ].join(','),
       body1: {
-        font: typography.typographyBody1,
+        fontSize: fontSizes.fontMedium,
         color: colors.primaryForegroundColor,
       },
       body2: {
-        font: typography.typographyBody2,
+        fontSize: fontSizes.fontSmall,
         color: colors.secondaryForegroundColor,
       },
       body3: {
-        font: typography.typographyBody3,
+        fontSize: fontSizes.fontXSmall,
         color: colors.secondaryForegroundColor,
       },
       h1: {
-        font: typography.typographyHeading,
+        fontSize: fontSizes.fontXLarge,
         color: colors.primaryForegroundColor,
       },
       subtitle1: {
-        font: typography.typographySubheading,
+        fontSize: fontSizes.fontLarge,
         color: colors.primaryForegroundColor,
       },
       button: {
-        font: typography.typographyButton,
+        fontSize: fontSizes.fontMedium,
         color: colors.primaryForegroundColor,
       },
     },
@@ -64,7 +64,7 @@ const theme = responsiveFontSizes(
       MuiButton: {
         styleOverrides: {
           root: {
-            font: typography.typographyButton,
+            fontSize: fontSizes.fontMedium,
           },
         },
       },
