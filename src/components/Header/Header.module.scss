@@ -11,11 +11,5 @@
   &__nav {
     display: flex;
     justify-content: space-between;
-
-    &__right {
-      align-items: center;
-      display: flex;
-      gap: variables.$spacing-x-small;
-    }
   }
 }

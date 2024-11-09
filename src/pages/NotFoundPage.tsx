@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   const { t } = useTranslation();
 
   return (
@@ -17,4 +17,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

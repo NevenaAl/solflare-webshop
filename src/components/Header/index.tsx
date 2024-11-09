@@ -6,11 +6,13 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Badge from '@mui/material/Badge';
+import { useContext } from 'react';
+import Box from '@mui/material/Box';
 
 import logo from '../../assets/images/logo.png';
 import style from './Header.module.scss';
 import { CartContext } from '../../context/CartProvider';
-import { useContext } from 'react';
+import { spacings } from '../../styles/variables/variables';
 
 interface HeaderProps {
   onOpenDrawer: () => void;
@@ -35,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
             <img width={'150px'} src={logo} alt={t('logo')}></img>
           </Link>
         </Tooltip>
-        <div className={style.header__nav__right}>
+        <Box display="flex" alignItems="center" gap={spacings.spacingXSmall}>
           <Tooltip title={t('shoppingCart')}>
             <IconButton
               onClick={handleCartClick}
@@ -56,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
             <MenuItem value={'en'}>en</MenuItem>
             <MenuItem value={'sr'}>sr</MenuItem>
           </Select>
-        </div>
+        </Box>
       </nav>
     </header>
   );

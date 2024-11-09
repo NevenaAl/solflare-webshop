@@ -1,11 +1,11 @@
 import Grid from '@mui/material/Grid2';
 import Skeleton from '@mui/material/Skeleton';
 import React from 'react';
+import { Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 import ProductListItem from '../ProductListItem';
 import { Product } from '../../types/product';
-import { Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 
 interface ProductListProps {
   products: Product[] | undefined;

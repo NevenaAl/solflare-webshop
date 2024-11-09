@@ -21,11 +21,10 @@ const App = () => {
 export default App;
 
 //TODO
-//replace div with box
 //fix imports
 //should i move drawer
 //comp naming
 //read me
 // move snacbar to toast snackbar and create layout folder
 //proveri gde provideri da idu
-//details
+//razdvojiti typography, ne radi dobro

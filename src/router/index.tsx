@@ -1,12 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Loading from '../pages/Loading';
 import { Routes } from './routes';
 
 const Layout = lazy(() => import('../components/Layout'));
-const Home = lazy(() => import('../pages/Home'));
-const ProductDetails = lazy(() => import('../pages/ProductDetails'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Home = lazy(() => import('../pages/HomePage'));
+const ProductDetails = lazy(() => import('../pages/ProductDetailsPage'));
+const NotFound = lazy(() => import('../pages/NotFoundPage'));
+const Loading = lazy(() => import('../pages/LoadingPage'));
 
 export const router = createBrowserRouter([
   {

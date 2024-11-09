@@ -5,7 +5,7 @@ export const DEFAULT_TOAST_TIMEOUT = 4000;
 
 interface ToastContextType {
   toasts: Toast[];
-  addToast: (toast: Omit<Toast, 'id'>) => number;
+  addToast: (toast: Omit<Toast, 'id'>) => void;
   removeToast: (toastId: number) => void;
 }
 
@@ -23,10 +23,13 @@ export const ToastContext = createContext<ToastContextType>(
 const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const addToast = (toast: Omit<Toast, 'id'>): number => {
+  const addToast = (toast: Omit<Toast, 'id'>) => {
     const newToast = { ...toast, id: new Date().getTime() }; // Set the id to the current timestamp
     setToasts((prevToasts) => [...prevToasts, newToast]);
-    return newToast.id;
+    const appliedTimeout = toast.timeout ?? DEFAULT_TOAST_TIMEOUT;
+    if (appliedTimeout > 0) {
+      setTimeout(() => removeToast(newToast.id), appliedTimeout);
+    }
   };
 
   const removeToast = (toastId: number): void => {

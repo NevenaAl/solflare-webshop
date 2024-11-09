@@ -17,7 +17,7 @@ const theme = responsiveFontSizes(
       ].join(','),
       body1: {
         font: typography.typographyBody1,
-        color: colors.primaryForegroundHoverColor,
+        color: colors.primaryForegroundColor,
       },
       body2: {
         font: typography.typographyBody2,
@@ -29,15 +29,15 @@ const theme = responsiveFontSizes(
       },
       h1: {
         font: typography.typographyHeading,
-        color: colors.primaryForegroundHoverColor,
+        color: colors.primaryForegroundColor,
       },
       subtitle1: {
         font: typography.typographySubheading,
-        color: colors.primaryForegroundHoverColor,
+        color: colors.primaryForegroundColor,
       },
       button: {
         font: typography.typographyButton,
-        color: colors.primaryForegroundHoverColor,
+        color: colors.primaryForegroundColor,
       },
     },
     palette: {

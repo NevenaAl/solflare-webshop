@@ -1,7 +1,8 @@
 import Alert, { AlertColor } from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
-import useToast from '../../../hooks/useToast';
 import style from './Toast.module.scss';
+import { ToastContext } from '../../../context/ToastProvider';
+import { useContext } from 'react';
 interface ToastProps {
   id: number;
   message: string;
@@ -9,19 +10,14 @@ interface ToastProps {
 }
 
 const Toast: React.FC<ToastProps> = ({ id, message, severity = 'success' }) => {
-  const { removeToast } = useToast();
+  const { removeToast } = useContext(ToastContext);
 
   const handleClose = () => {
     removeToast(id);
   };
 
   return (
-    <Alert
-      className={style.alert}
-      onClose={handleClose}
-      severity={severity}
-      variant="filled"
-    >
+    <Alert className={style.alert} onClose={handleClose} severity={severity}>
       <Typography variant="body1">{message}</Typography>
     </Alert>
   );

@@ -13,7 +13,7 @@ import { CartContext } from '../../context/CartProvider';
 import { spacings } from '../../styles/variables/variables';
 import Price from '../ui/Price';
 import style from './CartListItem.module.scss';
-import useToast from '../../hooks/useToast';
+import { ToastContext } from '../../context/ToastProvider';
 
 interface CartItemProps {
   item: CartItem;
@@ -22,7 +22,7 @@ interface CartItemProps {
 const CartListItem: React.FC<CartItemProps> = ({ item }) => {
   const { removeFromCart, updateQuantity } = useContext(CartContext);
   const { t } = useTranslation();
-  const { addToast } = useToast();
+  const { addToast } = useContext(ToastContext);
 
   const handleRemoveClick = () => {
     removeFromCart(item);

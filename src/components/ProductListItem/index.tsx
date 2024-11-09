@@ -16,7 +16,7 @@ import style from './ProductListItem.module.scss';
 import { Product } from '../../types/product';
 import { CartContext } from '../../context/CartProvider';
 import Price from '../ui/Price';
-import useToast from '../../hooks/useToast';
+import { ToastContext } from '../../context/ToastProvider';
 
 interface ProductListItemProps {
   product: Product;
@@ -25,7 +25,7 @@ interface ProductListItemProps {
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   const { t } = useTranslation();
   const { addToCart } = useContext(CartContext);
-  const { addToast } = useToast();
+  const { addToast } = useContext(ToastContext);
 
   const handleAddToCartClick = () => {
     addToCart(product);
