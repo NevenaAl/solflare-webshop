@@ -18,9 +18,3 @@ const App = () => {
 };
 
 export default App;
-
-//TODO
-//comp naming
-//read me
-//proveri gde provideri da idu
-//razdvojiti typography, ne radi dobro
