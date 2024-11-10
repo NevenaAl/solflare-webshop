@@ -1,19 +1,18 @@
-// import Link from '@mui/material/Link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import IconButton from '@mui/material/IconButton';
-import { I18nContext, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Badge from '@mui/material/Badge';
 import { useContext } from 'react';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/images/logo.png';
 import style from './Header.module.scss';
 import { CartContext } from '../../../context/CartProvider';
 import { spacings } from '../../../styles/variables/variables';
-import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   onOpenDrawer: () => void;
