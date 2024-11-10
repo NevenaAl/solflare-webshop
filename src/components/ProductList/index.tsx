@@ -32,7 +32,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, isLoading }) => {
       ) : products && products.length ? (
         products.map((product) => (
           <Grid key={product.id} size={{ xs: 4, sm: 4, md: 4 }}>
-            <ProductListItem product={product}></ProductListItem>
+            <ProductListItem product={product} />
           </Grid>
         ))
       ) : (

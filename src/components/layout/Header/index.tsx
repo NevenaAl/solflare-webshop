@@ -1,7 +1,7 @@
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import IconButton from '@mui/material/IconButton';
-import { useTranslation } from 'react-i18next';
+import { I18nContext, useTranslation } from 'react-i18next';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
@@ -13,6 +13,7 @@ import logo from '../../../assets/images/logo.png';
 import style from './Header.module.scss';
 import { CartContext } from '../../../context/CartProvider';
 import { spacings } from '../../../styles/variables/variables';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   onOpenDrawer: () => void;
@@ -23,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
     t,
     i18n: { changeLanguage, language },
   } = useTranslation();
-  const { cartItems } = useContext(CartContext);
+  const { cartItemsCount } = useContext(CartContext);
 
   const handleCartClick = (): void => {
     onOpenDrawer();
@@ -33,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
     <header className={style.header}>
       <nav className={style.header__nav}>
         <Tooltip title={t('home')}>
-          <Link href="/" aria-label={t('home')}>
+          <Link to="/" aria-label={t('home')}>
             <Box component="img" alt={t('logo')} src={logo} width={150} />
           </Link>
         </Tooltip>
@@ -44,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenDrawer }) => {
               color="primary"
               aria-label={t('shoppingCart')}
             >
-              <Badge badgeContent={cartItems.length} color="primary">
+              <Badge badgeContent={cartItemsCount} color="primary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

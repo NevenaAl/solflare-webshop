@@ -11,6 +11,7 @@ import { CartItem } from '../../types/cart';
 import { CartContext } from '../../context/CartProvider';
 import Price from '../ui/Price';
 import { spacings } from '../../styles/variables/variables';
+import { ToastContext } from '../../context/ToastProvider';
 
 interface CartListProps {
   items: CartItem[];
@@ -20,10 +21,11 @@ interface CartListProps {
 const CartList: React.FC<CartListProps> = ({ items, total }) => {
   const { clearCart } = useContext(CartContext);
   const { t } = useTranslation();
+  const { addToast } = useContext(ToastContext);
 
   const handleClearCartClick = () => {
     clearCart();
-    //show toast
+    addToast({ message: t('cartCleared') });
   };
 
   if (items.length === 0) {

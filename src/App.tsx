@@ -6,14 +6,20 @@ import theme from './styles/mui-theme';
 import './i18n';
 import { router } from './router';
 import { queryClient } from './api/query-client';
+import CartProvider from './context/CartProvider';
+import ToastProvider from './context/ToastProvider';
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <CartProvider>
+      <ToastProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+          </ThemeProvider>
+        </QueryClientProvider>
+      </ToastProvider>
+    </CartProvider>
   );
 };
 

@@ -20,6 +20,9 @@ const handleQueryCacheError = (
       case ErrorCodes.PRODUCTS_FETCH_FAILED:
         console.log('Error with fetching products query: ', error);
         break;
+      case ErrorCodes.PRODUCT_DETAILS_FETCH_FAILED:
+        console.log('Error with fetching product details query: ', error);
+        break;
       default:
         console.log('Unknown query error: ', error);
         break;

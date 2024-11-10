@@ -26,7 +26,7 @@ const ProductDetailsPage = () => {
     }
   }, [isError, error]);
 
-  return <ProductDetails isLoading={isLoading} product={data}></ProductDetails>;
+  return <ProductDetails isLoading={isLoading} product={data} />;
 };
 
 export default ProductDetailsPage;

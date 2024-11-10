@@ -1,26 +1,23 @@
-import { createContext, useState, useEffect, ReactNode, useMemo } from 'react';
+import { createContext, useState, useEffect, useMemo } from 'react';
 
 import { Product } from '../types/product';
 import { CartItem } from '../types/cart';
 
-interface CartProviderProps {
-  children: ReactNode;
-}
-
 interface ContextProps {
   cartItems: CartItem[];
+  cartTotal: number;
+  cartItemsCount: number;
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (item: CartItem) => void;
   updateQuantity: (item: CartItem, quantity: number) => void;
   clearCart: () => void;
-  cartTotal: number;
 }
 
 // CartContext provides a global state for managing the cart items in the application
 // This allows components to add, remove, and update cart items and the total cart price.
 export const CartContext = createContext({} as ContextProps);
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+const CartProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>(
     localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems')!)
@@ -91,6 +88,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   }, [cartItems]);
 
+  const cartItemsCount = useMemo(
+    () => cartItems.reduce((prev, current) => prev + current.quantity, 0),
+    [cartItems],
+  );
+
   return (
     <CartContext.Provider
       value={{
@@ -100,9 +102,12 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         clearCart,
         cartTotal,
         updateQuantity,
+        cartItemsCount,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
+export default CartProvider;

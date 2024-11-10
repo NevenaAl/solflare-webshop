@@ -7,7 +7,6 @@ import style from './MainLayout.module.scss';
 import Header from '../Header';
 import CartList from '../../CartList';
 import { CartContext } from '../../../context/CartProvider';
-import { ToastContext } from '../../../context/ToastProvider';
 import ToastsSnackbar from '../ToastsSnackbar';
 
 const Layout = () => {

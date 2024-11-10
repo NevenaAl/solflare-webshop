@@ -3,15 +3,10 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircle from '@mui/icons-material/CheckCircleOutline';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import List from '@mui/material/List';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Button from '@mui/material/Button';
-import Skeleton from '@mui/material/Skeleton';
 
 import { CartContext } from '../../context/CartProvider';
 import { spacings } from '../../styles/variables/variables';
@@ -20,6 +15,8 @@ import { ToastContext } from '../../context/ToastProvider';
 import { Product } from '../../types/product';
 import ProductDataTable from '../ProductDataTable';
 import noImage from '../../assets/images/noImage.jpg';
+import ProductDetailsSkeleton from '../ProductDetailsSkeleton';
+import Accordion from '../ui/Accordion';
 
 interface ProductDetailsProps {
   isLoading: boolean;
@@ -40,26 +37,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   };
 
   if (isLoading) {
-    return (
-      <Box
-        gap={spacings.spacingLarge}
-        display="flex"
-        sx={{
-          flexDirection: { xs: 'column', sm: 'row' },
-        }}
-      >
-        <Skeleton variant="rounded" height={300} width={300} />
-        <Box
-          flex="1"
-          display="flex"
-          flexDirection="column"
-          gap={spacings.spacingMedium}
-        >
-          <Skeleton variant="rounded" height={50} width="100%"></Skeleton>
-          <Skeleton variant="rounded" height={235} width="100%"></Skeleton>
-        </Box>
-      </Box>
-    );
+    return <ProductDetailsSkeleton />;
   }
 
   if (!product) {
@@ -106,49 +84,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
         </Box>
       </Box>
       <Box>
-        <Accordion defaultExpanded>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="features-content"
-          >
-            <Typography fontWeight="500">{t('features')}</Typography>
-          </AccordionSummary>
-          <AccordionDetails id="features-content">
-            <List>
-              {product.features.map((feature) => (
-                <ListItem key={feature}>
-                  <ListItemAvatar>
-                    <CheckCircle color="success" />
-                  </ListItemAvatar>
-                  <Typography>{feature}</Typography>
-                </ListItem>
-              ))}
-            </List>
-          </AccordionDetails>
+        <Accordion isExpandedByDefault title={t('features')}>
+          <List>
+            {product.features.map((feature) => (
+              <ListItem key={feature}>
+                <ListItemAvatar>
+                  <CheckCircle color="success" />
+                </ListItemAvatar>
+                <Typography>{feature}</Typography>
+              </ListItem>
+            ))}
+          </List>
         </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="specifications-content"
-          >
-            <Typography fontWeight="500">{t('specifications')}</Typography>
-          </AccordionSummary>
-          <AccordionDetails id="specifications-content">
-            <ProductDataTable data={product.specifications} />
-          </AccordionDetails>
+        <Accordion title={t('specifications')}>
+          <ProductDataTable data={product.specifications} />
         </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="additional-information-content"
-          >
-            <Typography fontWeight="500">
-              {t('additionalInformation')}
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails id="additional-information-content">
-            <ProductDataTable data={product.additionalInformation} />
-          </AccordionDetails>
+        <Accordion title={t('additionalInformation')}>
+          <ProductDataTable data={product.additionalInformation} />
         </Accordion>
       </Box>
     </Box>

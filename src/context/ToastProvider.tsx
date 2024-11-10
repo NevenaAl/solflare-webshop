@@ -1,4 +1,4 @@
-import { useState, useCallback, ReactNode, createContext } from 'react';
+import { useState, useCallback, createContext } from 'react';
 import { Toast } from '../types/toast';
 
 export const DEFAULT_TOAST_TIMEOUT = 4000;
@@ -9,10 +9,6 @@ interface ToastContextType {
   removeToast: (toastId: number) => void;
 }
 
-interface ToastProviderProps {
-  children: ReactNode;
-}
-
 // ToastContext provides a global state and functions for managing toast notifications
 // It allows components to add, remove, and display toasts throughout the app
 // It serves as centralized service to avoid adding Toast component and managing it's state on multiple places (due to how MaterialUI handles it)
@@ -20,7 +16,7 @@ export const ToastContext = createContext<ToastContextType>(
   {} as ToastContextType,
 );
 
-const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
+const ToastProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const addToast = (toast: Omit<Toast, 'id'>) => {

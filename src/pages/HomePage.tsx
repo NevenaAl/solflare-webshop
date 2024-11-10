@@ -19,9 +19,9 @@ const HomePage = () => {
     if (isError) {
       addToast({ message: error.message, severity: 'error' });
     }
-  }, [isError, error]);
+  }, [isError, error, addToast]);
 
-  return <ProductList isLoading={isLoading} products={data}></ProductList>;
+  return <ProductList isLoading={isLoading} products={data} />;
 };
 
 export default HomePage;

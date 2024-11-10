@@ -9,10 +9,10 @@ export interface Product {
 }
 
 export type Specifications = Record<string, ProductDataType>;
-export type AdditionalInformation = Record<
-  AdditionalInformationKey,
-  ProductDataType
->;
 
-export type AdditionalInformationKey = 'Warranty' | 'In the Box';
+export type AdditionalInformation = {
+  Warranty: string;
+  'In the Box': string[];
+};
+
 export type ProductDataType = string | string[] | number;
