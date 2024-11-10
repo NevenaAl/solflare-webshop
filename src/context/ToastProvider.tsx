@@ -1,4 +1,4 @@
-import { useState, useCallback, createContext } from 'react';
+import { useState, createContext } from 'react';
 import { Toast } from '../types/toast';
 
 export const DEFAULT_TOAST_TIMEOUT = 4000;
@@ -34,8 +34,8 @@ const ToastProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   const contextValue = {
     toasts,
-    addToast: useCallback((toast: Omit<Toast, 'id'>) => addToast(toast), []),
-    removeToast: useCallback((toastId: number) => removeToast(toastId), []),
+    addToast,
+    removeToast,
   };
 
   return (

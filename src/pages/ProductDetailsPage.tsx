@@ -24,7 +24,7 @@ const ProductDetailsPage = () => {
     if (isError) {
       addToast({ message: error.message, severity: 'error' });
     }
-  }, [isError, error]);
+  }, [isError, error, addToast]);
 
   return <ProductDetails isLoading={isLoading} product={data} />;
 };
