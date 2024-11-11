@@ -2,7 +2,7 @@ import { ProductDataValue } from '../types/product';
 
 interface ProductTableData {
   label: string;
-  value: ProductDataValue;
+  value: string;
 }
 
 // Helper function to convert product data object (e.g. specifications, additionalInformation) to an array of label-value objects
