@@ -8,9 +8,10 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 import { getCovertedProductTableData } from '../../utils/product-util';
+import { ProductDataValue } from '../../types/product';
 
 interface ProductDataTableProps {
-  data: Record<string, string | string[] | number>;
+  data: Record<string, ProductDataValue>;
 }
 
 const ProductDataTable: React.FC<ProductDataTableProps> = ({ data }) => {

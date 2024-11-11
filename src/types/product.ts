@@ -1,4 +1,4 @@
-export interface Product {
+export type Product = {
   id: number;
   name: string;
   description: string;
@@ -6,13 +6,13 @@ export interface Product {
   features: string[];
   specifications: Specifications;
   additionalInformation: AdditionalInformation;
-}
+};
 
-export type Specifications = Record<string, ProductDataType>;
+export type Specifications = Record<string, ProductDataValue>;
 
 export type AdditionalInformation = {
   Warranty: string;
   'In the Box': string[];
 };
 
-export type ProductDataType = string | string[] | number;
+export type ProductDataValue = string | string[] | number;

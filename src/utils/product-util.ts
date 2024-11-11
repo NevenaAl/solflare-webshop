@@ -1,13 +1,13 @@
-import { ProductDataType } from '../types/product';
+import { ProductDataValue } from '../types/product';
 
 interface ProductTableData {
   label: string;
-  value: ProductDataType;
+  value: ProductDataValue;
 }
 
 // Helper function to convert product data object (e.g. specifications, additionalInformation) to an array of label-value objects
 export const getCovertedProductTableData = (
-  data: Record<string, ProductDataType>,
+  data: Record<string, ProductDataValue>,
 ): ProductTableData[] => {
   return Object.entries(data).map(([label, value]) => ({
     label,

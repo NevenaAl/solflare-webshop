@@ -1,7 +1,7 @@
 import { Product } from './product';
 
-export interface CartItem {
+export type CartItem = {
   product: Product;
   quantity: number;
   price: number;
-}
+};
